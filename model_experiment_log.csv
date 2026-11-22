@@ -1,0 +1,11 @@
+Model,Configuration,Training Samples,Testing Samples,Metrics / Results,Observation
+Correlation Matrix,Pearson correlation,Not applicable,Not applicable,Orders-Items: 0.7473; Spent-AOV: 0.6814,Strong positive relationship between total orders and total items
+K-Means,K=2; log1p; StandardScaler,96478,Not applicable,Silhouette: 0.6626,Two customer segments identified
+Apriori,Min support=0.001; confidence=0.01; max length=3,96478,Not applicable,0 rules with lift above 1,Identified translation-mapped Olist rules
+NetworkX,Category co-purchase network,53,Not applicable,53 nodes; 0 edges,Visualized top 15 categories network
+Linear Regression - Iteration 1,80/20 split; original date records,77176,19294,MAE: 5.5807; R2: 0.1853,Calculates delivery times with raw timestamp data
+Linear Regression - Iteration 2,Filter shipping days <= 30 and >= 0,73882,18471,MAE: 4.3597; R2: 0.2234,Significantly improved errors by filtering delivery noise
+Logistic Regression,Class weight balanced; 80/20 split,77346,19337,Accuracy: 0.5541; F1: 0.1285,Balanced classifier mapping customer repeat purchase status
+Linear Discriminant Analysis (LDA),Shrinkage auto; LSQ solver,77346,19337,Accuracy: 0.9385; F1: 0.0000,Evaluates linear projection limits for repeat buyers
+Decision Tree,Max depth 5; balanced class weight,77346,19337,Accuracy: 0.4771; F1: 0.1253,Simple baseline structure predicting consumer behavior
+Neural Network (MLP),"Layers (64, 32); early stopping",77346,19337,Accuracy: 0.9385; F1: 0.0000,Deep architectural formulation mapping non-linear properties
